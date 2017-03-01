@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculate(int answer, int number, String operation) {
-        //TODO
+
     }
 
 
