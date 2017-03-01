@@ -10,23 +10,24 @@ public class MainActivity extends AppCompatActivity {
     // Load views
     TextView textView = (TextView) findViewById(R.id.textView);
 
-    Button button1 = (Button) findViewById(R.id.button1);
-    Button button2 = (Button) findViewById(R.id.button2);
-    Button button3 = (Button) findViewById(R.id.button3);
-    Button button4 = (Button) findViewById(R.id.button4);
-    Button button5 = (Button) findViewById(R.id.button5);
-    Button button6 = (Button) findViewById(R.id.button6);
-    Button button7 = (Button) findViewById(R.id.button7);
-    Button button8 = (Button) findViewById(R.id.button8);
-    Button button9 = (Button) findViewById(R.id.button9);
-    Button button0 = (Button) findViewById(R.id.button0);
-    Button multButton = (Button) findViewById(R.id.multButton);
-    Button divButton = (Button) findViewById(R.id.divButton);
-    Button plusButton = (Button) findViewById(R.id.plusButton);
-    Button minusButton = (Button) findViewById(R.id.minusButton);
-    Button ceButton = (Button) findViewById(R.id.ceButton);
-    Button cButton = (Button) findViewById(R.id.cButton);
-    Button eButton = (Button) findViewById(R.id.eButton);
+    //variables
+    Button multiplicationButton = (Button) findViewById(R.id.buttonMultiply);
+    Button divButton = (Button) findViewById(R.id.buttonDivide);
+    Button plusButton = (Button) findViewById(R.id.buttonPlus);
+    Button minusButton = (Button) findViewById(R.id.buttonMinus);
+    Button ceButton = (Button) findViewById(R.id.buttonCE);
+    Button cButton = (Button) findViewById(R.id.buttonC);
+    Button eButton = (Button) findViewById(R.id.buttonEquals);
+    Button button1 = (Button) findViewById(R.id.buttonOne);
+    Button button2 = (Button) findViewById(R.id.buttonTwo);
+    Button button3 = (Button) findViewById(R.id.buttonThree);
+    Button button4 = (Button) findViewById(R.id.buttonFour);
+    Button button5 = (Button) findViewById(R.id.buttonFive);
+    Button button6 = (Button) findViewById(R.id.buttonSix);
+    Button button7 = (Button) findViewById(R.id.buttonSeven);
+    Button button8 = (Button) findViewById(R.id.buttonEight);
+    Button button9 = (Button) findViewById(R.id.buttonNine);
+    Button button0 = (Button) findViewById(R.id.buttonZero);
 
 
     // Variables
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        multButton.setOnClickListener(new View.OnClickListener() {
+        multiplicationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 operation = "multiply";

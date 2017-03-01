@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:columnCount="5"
+    android:rowCount="8"
     android:orientation="horizontal" >
 
     <TextView
@@ -12,91 +13,91 @@
         android:textSize="20pt"
         android:id="@+id/textView"/>
 
-    <Button android:text="0"
+    <Button android:text="@string/_0"
         android:layout_row="4"
         android:layout_column="1"
         android:id="@+id/buttonZero"/>
 
-    <Button android:text="1"
+    <Button android:text="@string/_1"
         android:layout_row="3"
         android:layout_column="0"
         android:id="@+id/buttonOne"/>
 
-    <Button android:text="2"
+    <Button android:text="@string/_2"
         android:layout_row="3"
         android:layout_column="1"
         android:id="@+id/buttonTwo"/>
 
-    <Button android:text="4"
+    <Button android:text="@string/_4"
         android:layout_row="2"
         android:layout_column="0"
         android:id="@+id/buttonFour"/>
 
-    <Button android:text="5"
-        android:layout_row="2"
-        android:layout_column="1"
-        android:id="@+id/buttonFive"/>
-
-    <Button android:text="7"
+    <Button android:text="@string/_7"
         android:layout_row="1"
         android:layout_column="0"
         android:id="@+id/buttonSeven"/>
 
-    <Button android:text="8"
+    <Button android:text="@string/_8"
         android:layout_row="1"
         android:layout_column="1"
         android:id="@+id/buttonEight"/>
 
-    <Button android:text="C"
+    <Button android:text="@string/c"
         android:layout_row="4"
         android:layout_column="0"
-        android:id="@+id/buttonClear"/>
+        android:id="@+id/buttonC"/>
 
-    <Button android:text="CE"
+    <Button android:text="@string/ce"
         android:layout_row="4"
         android:layout_column="2"
-        android:id="@+id/buttonDelete"/>
+        android:id="@+id/buttonCE"/>
 
-    <Button android:text="/"
+    <Button android:text="@string/divide"
         android:layout_row="0"
         android:layout_column="1"
         android:id="@+id/buttonDivide"/>
 
-    <Button android:text="-"
+    <Button android:text="@string/minus"
         android:layout_row="0"
         android:layout_column="2"
         android:id="@+id/buttonMinus"/>
 
-    <Button android:text="6"
+    <Button android:text="@string/_6"
         android:layout_row="2"
         android:layout_column="2"
         android:id="@+id/buttonSix"/>
 
-    <Button android:text="3"
+    <Button android:text="@string/_3"
         android:layout_row="3"
         android:layout_column="2"
         android:id="@+id/buttonThree"/>
 
-    <Button android:text="9"
+    <Button android:text="@string/_9"
         android:layout_row="1"
         android:layout_column="2"
         android:id="@+id/buttonNine" />
 
-    <Button android:text="*"
+    <Button android:text="@string/multiply"
         android:layout_row="0"
         android:layout_column="0"
         android:id="@+id/buttonMultiply"/>
 
-    <Button android:text="+"
+    <Button android:text="@string/plus"
         android:layout_row="0"
         android:layout_gravity="fill"
         android:layout_rowSpan="4"
         android:layout_column="3"
         android:id="@+id/buttonPlus"/>
 
-    <Button android:text="="
+    <Button android:text="@string/equals"
         android:layout_row="4"
         android:layout_column="3"
         android:id="@+id/buttonEquals"/>
+
+    <Button android:text="@string/_5"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:id="@+id/buttonFive"/>
 
 </GridLayout>
