@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Variables
     int answer;
-    int newNum;
+    int number;
     String operation;
 
     @Override
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         answer = 0;
-        newNum = 0;
+        number = 0;
         operation = null;
 
 
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 answer = 0;
-                newNum = 0;
+                number = 0;
                 textView.setText("0");
             }
         });
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 answer = 0;
-                newNum = 0;
+               number = 0;
                 textView.setText("0");
                 operation = null;
             }
@@ -165,15 +165,17 @@ public class MainActivity extends AppCompatActivity {
         eButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculate( answer, newNum, operation);
+                calculate( answer, number, operation);
             }
         });
     }
 
-    private void calculate(int answer, int newNum, String operation) {
+    private void calculate(int answer, int number, String operation) {
         //TODO
     }
 
+
+    //onSaveInstances && onRestoreInstances
     @Override
     protected void onSaveInstanceState( Bundle savedInstanceState){
         //TODO update w/necessary variables
