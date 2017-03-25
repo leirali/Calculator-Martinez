@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    // Load views
+ 
 
     private String operation;
     private int ans;
