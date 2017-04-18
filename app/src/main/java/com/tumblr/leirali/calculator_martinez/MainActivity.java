@@ -7,183 +7,154 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
- 
 
-    private String operation;
-    private int ans;
-    private int num;
-    private Button mult;
-    private Button div;
+    private TextView currentOperation;
+    private Double saved = 0.0;
+    private Double current = 0.0;
+    private boolean isInput = false;
+    private String inputString= "";
+    private String opString="";
+    private String savedString= "";
+    private String calcString= "";
+
+    private Button zero;
+    private Button one;
+    private Button two;
+    private Button three;
+    private Button four;
+    private Button five;
+    private Button six;
+    private Button seven;
+    private Button eight;
+    private Button nine;
+    private Button clear;
+    private Button clearAll;
+    private Button equals;
     private Button plus;
     private Button minus;
-    private Button delete;
-    private Button clear;
-    private Button equals;
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
-    private Button button5;
-    private Button button6;
-    private Button button7;
-    private Button button8;
-    private Button button9;
-    private Button button0;
-    private TextView textView;
-    private boolean isInput = false;
-    private String inputString = "";
-    private String calcString = "";
+    private Button multiply;
+    private Button divide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        plus = (Button) findViewById(R.id.plus);
+        minus = (Button) findViewById(R.id.minus);
+        multiply = (Button) findViewById(R.id.multiply);
+        divide = (Button) findViewById(R.id.divide);
+        zero = (Button) findViewById(R.id.zero);
+        one = (Button) findViewById(R.id.one);
+        two = (Button) findViewById(R.id.two);
+        three = (Button) findViewById(R.id.three);
+        four = (Button) findViewById(R.id.four);
+        five = (Button) findViewById(R.id.five);
+        six = (Button) findViewById(R.id.six);
+        seven = (Button) findViewById(R.id.seven);
+        eight = (Button) findViewById(R.id.eight);
+        nine = (Button) findViewById(R.id.nine);
+        clear = (Button) findViewById(R.id.clear);
+        clearAll = (Button) findViewById(R.id.clearAll);
+        equals = (Button) findViewById(R.id.equals);
+        currentOperation = (TextView) findViewById(R.id.currentOp);
+        currentOperation.setText(savedString+opString+inputString);
 
-        ans = 0;
-        num = 0;
-        operation = null;
-        mult = (Button) findViewById(R.id.buttonMultiply);
-        div = (Button) findViewById(R.id.buttonDivide);
-        plus = (Button) findViewById(R.id.buttonPlus);
-        minus = (Button) findViewById(R.id.buttonMinus);
-        delete = (Button) findViewById(R.id.buttonCE);
-        clear = (Button) findViewById(R.id.buttonC);
-        equals = (Button) findViewById(R.id.buttonEquals);
-        button1 = (Button) findViewById(R.id.buttonOne);
-        button2 = (Button) findViewById(R.id.buttonTwo);
-        button3 = (Button) findViewById(R.id.buttonThree);
-        button4 = (Button) findViewById(R.id.buttonFour);
-        button5 = (Button) findViewById(R.id.buttonFive);
-        button6 = (Button) findViewById(R.id.buttonSix);
-        button7 = (Button) findViewById(R.id.buttonSeven);
-        button8 = (Button) findViewById(R.id.buttonEight);
-        button9 = (Button) findViewById(R.id.buttonNine);
-        button0 = (Button) findViewById(R.id.buttonZero);
-        textView = (TextView) findViewById(R.id.numView);
-
-        // Set onClick event listeners
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
+        zero.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                append('0');
+            }
+        });
+        one.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 append('1');
             }
         });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
+        two.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                append("2");
+                append('2');
             }
         });
-
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
+        three.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                append("3");
+                append('3');
             }
         });
-
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
+        four.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                append("4");
+                append('4');
             }
         });
-
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
+        five.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                append("5");
+                append('5');
             }
         });
-
-        button6.setOnClickListener(new View.OnClickListener() {
-            @Override
+        six.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                append("6");
+                append('6');
             }
         });
-
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
+        seven.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                append("7");
+                append('7');
             }
         });
-
-        button8.setOnClickListener(new View.OnClickListener() {
-            @Override
+        eight.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                append("8");
+                append('8');
             }
         });
-
-        button9.setOnClickListener(new View.OnClickListener() {
-            @Override
+        nine.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                append("9");
+                append('9');
             }
         });
-
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                append("0");
-            }
-        });
-
-        mult.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                operand('*');
-            }
-        });
-
-        div.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                operand('/');
-            }
-        });
-
-        plus.setOnClickListener(new View.OnClickListener() {
-            @Override
+        plus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 operand('+');
             }
         });
-
-        minus.setOnClickListener(new View.OnClickListener() {
-            @Override
+        minus.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 operand('-');
             }
         });
-
-        delete.setOnClickListener(new View.OnClickListener() {
+        multiply.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                operand('*');
+            }
+        });
+        divide.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                operand('/');
+            }
+        });
+        equals.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                if(!savedString.isEmpty() && !opString.isEmpty() && !inputString.isEmpty())
+                    calculation();
+            }
+        });
+        clearAll.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 inputString = "";
-                textView.setText(inputString);
+                savedString = "";
+                opString = "";
+                calcString = "";
+                saved = 0.0;
+                current = 0.0;
+                currentOperation.setText(saved.toString());
             }
         });
-
-        clear.setOnClickListener(new View.OnClickListener() {
+        clear.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-               inputString = "";
-                textView.setText(inputString);
-            }
-        });
-
-        equals.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calculate( ans, num, operation);
+                inputString = "";
+                currentOperation.setText(savedString+opString+inputString);
             }
         });
     }
-
     public void append(char input){
         if(!isInput){
             isInput = true;
@@ -218,9 +189,8 @@ public class MainActivity extends AppCompatActivity {
         else if(input =='0'){
             inputString = inputString + "0";
         }
-        textView.setText(inputString);
+        currentOperation.setText(savedString+opString+inputString);
     }
-
     public void operand(char input){
         if(savedString.isEmpty()) {
             if (isInput) {
@@ -235,13 +205,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 savedString = inputString;
                 inputString = "";
-                currentOp.setText(savedString + opString + inputString);
+                currentOperation.setText(savedString + opString + inputString);
                 isInput = false;
             }
         }
     }
-
-    private void calculate(int ans, int num, String operation) {
+    public void calculation(){
         saved = Double.valueOf(savedString);
         current = Double.valueOf(inputString);
         if(opString.contains("+"))
@@ -258,31 +227,23 @@ public class MainActivity extends AppCompatActivity {
         calcString = saved.toString();
         saved = 0.0;
         current = 0.0;
-        prevOp.setText(calcString);
-        currentOp.setText(savedString + opString + inputString);
-        }
-
+        currentOperation.setText(savedString + opString + inputString);
     }
-
-
-    //onSaveInstances && onRestoreInstances
-    @Override
-    protected void onSaveInstanceState( Bundle savedInstanceState){
-        //TODO update w/necessary variables
-        super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putString("op", operation);
-        savedInstanceState.putString("answer", ans);
-        savedInstanceState.putString("new number", newNum);
-        savedInstanceState.putCharSequence("view", textView.getText());
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("inputSave",inputString);
+        outState.putString("savedSave",savedString);
+        outState.putString("operationSave",opString);
+        outState.putString("calcSave",calcString);
+        outState.putBoolean("isInputSave",isInput);
     }
-
-    @Override
-    protected void onRestoreInstanceState( Bundle savedInstanceState){
-        //TODO see onSave
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
-        textView.setText(savedInstanceState.getCharSequence("view"));
-        operation = savedInstanceState.getString("op");
-        ans = savedInstanceState.getString("answer");
-        newNum = savedInstanceState.getString("new number");
+        inputString = savedInstanceState.getString("inputSave");
+        savedString = savedInstanceState.getString("savedSave");
+        opString = savedInstanceState.getString("operationSave");
+        calcString = savedInstanceState.getString("calcSave");
+        isInput = savedInstanceState.getBoolean("isInputSave");
+        currentOperation.setText(savedString + opString + inputString);
     }
 }
