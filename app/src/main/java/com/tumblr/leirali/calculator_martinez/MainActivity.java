@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView currentOperation;
+    private TextView previousOperation;
     private Double saved = 0.0;
     private Double current = 0.0;
     private boolean isInput = false;
@@ -56,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
         clear = (Button) findViewById(R.id.clear);
         clearAll = (Button) findViewById(R.id.clearAll);
         equals = (Button) findViewById(R.id.equals);
+        previousOperation = (TextView) findViewById(R.id.prevOp);
         currentOperation = (TextView) findViewById(R.id.currentOp);
         currentOperation.setText(savedString+opString+inputString);
+        //result
 
         zero.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
@@ -147,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 currentOperation.setText(saved.toString());
             }
         });
+
         clear.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -213,6 +217,7 @@ public class MainActivity extends AppCompatActivity {
     public void calculation(){
         saved = Double.valueOf(savedString);
         current = Double.valueOf(inputString);
+
         if(opString.contains("+"))
             saved = saved + current;
         else if(opString.contains("-"))
@@ -221,12 +226,15 @@ public class MainActivity extends AppCompatActivity {
             saved = saved * current;
         else if(opString.contains("/"))
             saved = saved / current;
+
         savedString = "";
         opString = "";
         inputString = "";
         calcString = saved.toString();
+        //need result
         saved = 0.0;
         current = 0.0;
+        previousOperation.setText(calcString);
         currentOperation.setText(savedString + opString + inputString);
     }
     protected void onSaveInstanceState(Bundle outState) {
@@ -244,6 +252,7 @@ public class MainActivity extends AppCompatActivity {
         opString = savedInstanceState.getString("operationSave");
         calcString = savedInstanceState.getString("calcSave");
         isInput = savedInstanceState.getBoolean("isInputSave");
+        previousOperation.setText(calcString);
         currentOperation.setText(savedString + opString + inputString);
     }
 }
